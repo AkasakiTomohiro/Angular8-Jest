@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ts1Service } from '../Service/ts1.service';
-import { Ts2Service } from '../Service/ts2.service';
+import { Ts1Service } from '../ts1.service';
 
 @Component({
   selector: 'app-tc1',
@@ -9,7 +8,7 @@ import { Ts2Service } from '../Service/ts2.service';
 })
 export class Tc1Component implements OnInit {
 
-  constructor(private ts1: Ts1Service, private ts2: Ts2Service) { }
+  constructor(private ts1: Ts1Service) { }
 
   ngOnInit() {
   }
