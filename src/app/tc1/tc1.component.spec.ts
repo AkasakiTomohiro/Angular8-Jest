@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { Tc1Component } from './tc1.component';
 import { Ts1Service } from '../Service/ts1.service';
+import { Ts2Service } from '../Service/ts2.service';
 
 describe('Tc1Component', () => {
   let component: Tc1Component;
@@ -13,7 +14,7 @@ describe('Tc1Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [Tc1Component],
-      // providers: [Ts1Service]
+      providers: [Ts1Service, Ts2Service]
     })
       .compileComponents();
   }));
