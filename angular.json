@@ -3,32 +3,32 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TestProject": {
+    "pj1": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/pj1",
+      "sourceRoot": "projects/pj1/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TestProject",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/pj1",
+            "index": "projects/pj1/src/index.html",
+            "main": "projects/pj1/src/main.ts",
+            "polyfills": "projects/pj1/src/polyfills.ts",
+            "tsConfig": "projects/pj1/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/pj1/src/favicon.ico",
+              "projects/pj1/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/pj1/src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/pj1/src/environments/environment.ts",
+                  "with": "projects/pj1/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -67,44 +67,30 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TestProject:build"
+            "browserTarget": "pj1:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TestProject:build:production"
+              "browserTarget": "pj1:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TestProject:build"
+            "browserTarget": "pj1:build"
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          }
+          "builder": "@angular-builders/jest:run"
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "projects/pj1/tsconfig.app.json",
+              "projects/pj1/tsconfig.spec.json",
+              "projects/pj1/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -114,17 +100,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "TestProject:serve"
+            "protractorConfig": "projects/pj1/e2e/protractor.conf.js",
+            "devServerTarget": "pj1:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "TestProject:serve:production"
+              "devServerTarget": "pj1:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "TestProject"
+  "defaultProject": "pj1"
 }
